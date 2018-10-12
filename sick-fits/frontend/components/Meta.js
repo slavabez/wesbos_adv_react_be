@@ -5,8 +5,8 @@ const Meta = () => {
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <meta rel="icon shortcut" href="/static/favicon.png" />
-      <meta rel="stylesheet" type="text/css" href="/static/nprogress.css" />
+      <link rel="icon shortcut" href="/static/favicon.png" />
+      <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
       <title>Sick Fits!</title>
 
     </Head>
