@@ -47,17 +47,20 @@ class CreateItem extends Component {
     data.append("file", files[0]);
     data.append("upload_preset", "sickfits");
 
-    const res = await fetch("https://api.cloudinary.com/v1_1/slavalab/image/upload", {
-      method: "POST",
-      body: data
-    });
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/slavalab/image/upload",
+      {
+        method: "POST",
+        body: data
+      }
+    );
 
     const file = await res.json();
     console.log(file);
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url
-    })
+    });
   };
 
   render() {
@@ -89,9 +92,11 @@ class CreateItem extends Component {
                   name="file"
                   placeholder="Upload an image..."
                   required
-                  value={this.state.image}
                   onChange={this.uploadFile}
                 />
+                {this.state.image && (
+                  <img src={this.state.image} width="200" alt="Upload preview" />
+                )}
               </label>
 
               <label htmlFor="title">
