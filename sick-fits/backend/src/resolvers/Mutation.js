@@ -12,6 +12,20 @@ const Mutations = {
     );
 
     return item;
+  },
+
+  async updateItem(parent, args, ctx, info) {
+    // take a copy of the updtes
+    const updates = { ...args };
+    // Remove the ID from the updates
+    delete updates.id;
+    // Run the update method
+    return ctx.db.mutation.updateItem({
+      data: updates,
+      where: {
+        id: args.id
+      }
+    }, info);
   }
 };
 
